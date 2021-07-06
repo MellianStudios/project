@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Inertia\Inertia;
+use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +15,21 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::prefix(LaravelLocalization::setLocale())->middleware(['localize', 'localizationRedirect', 'localeSessionRedirect', 'localeViewPath'])->group(function () {
+    Route::prefix('admin')->middleware(['auth', 'role:admin'])->group(function () {
+
+    });
+
+    Route::middleware(['guest'])->group(function () {
+
+    });
+
+    Route::middleware(['auth'])->group(function () {
+
+    });
+
+    Route::get('/', function () {
+        return Inertia::render('Welcome');
+    });
 });
+
