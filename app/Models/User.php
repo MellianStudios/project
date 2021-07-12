@@ -2,8 +2,8 @@
 
 namespace App\Models;
 
-use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laratrust\Traits\LaratrustUserTrait;
@@ -13,8 +13,7 @@ use Laratrust\Traits\LaratrustUserTrait;
  */
 class User extends Authenticatable
 {
-    use LaratrustUserTrait;
-    use HasFactory, Notifiable;
+    use HasFactory, Notifiable, LaratrustUserTrait;
 
     /**
      * The attributes that are mass assignable.
@@ -22,8 +21,8 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name',
         'email',
+        'active',
         'password',
     ];
 
@@ -38,11 +37,26 @@ class User extends Authenticatable
     ];
 
     /**
-     * The attributes that should be cast to native types.
-     *
-     * @var array
+     * @return HasMany
      */
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-    ];
+    public function tokens(): HasMany
+    {
+        return $this->hasMany(Token::class);
+    }
+
+    /**
+     * @return HasMany
+     */
+    public function activations(): HasMany
+    {
+        return $this->hasMany(Token::class)->where('type', Token::TYPE_ACTIVATION);
+    }
+
+    /**
+     * @return HasMany
+     */
+    public function passwordResets(): HasMany
+    {
+        return $this->hasMany(Token::class)->where('type', Token::TYPE_PASSWORD_RESET);
+    }
 }
