@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * @mixin IdeHelperActivation
+ * @mixin IdeHelperToken
  */
 class Token extends Model
 {
