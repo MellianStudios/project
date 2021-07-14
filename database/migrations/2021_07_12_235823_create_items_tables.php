@@ -18,7 +18,7 @@ class CreateItemsTables extends Migration
             $table->string('name');
             $table->string('short_description');
             $table->text('description');
-            $table->integer('item_type_id');
+            $table->integer('category_id');
             $table->integer('item_family_id');
             $table->timestamps();
         });
@@ -27,23 +27,16 @@ class CreateItemsTables extends Migration
             $table->integer('item_id');
             $table->integer('item_specification_type_id');
             $table->string('value');
-            $table->timestamps();
         });
 
         Schema::create('item_specification_types', function (Blueprint $table) {
             $table->id();
-            $table->integer('item_type_id');
+            $table->integer('category_id');
             $table->string('system_name');
             $table->string('name');
-            $table->string('units');
+            $table->string('units')->nullable();
             $table->boolean('required');
             $table->integer('order');
-            $table->timestamps();
-        });
-
-        Schema::create('item_types', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
             $table->timestamps();
         });
 
