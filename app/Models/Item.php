@@ -5,12 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Spatie\MediaLibrary\InteractsWithMedia;
 
 /**
  * @mixin IdeHelperItem
  */
 class Item extends Model
 {
+    use InteractsWithMedia;
+
     /**
      * @return BelongsToMany
      */
