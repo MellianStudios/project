@@ -61,4 +61,3 @@ Route::prefix(LaravelLocalization::setLocale())->middleware(['localize', 'locali
         return Inertia::render('Welcome');
     })->name('dashboard');
 });
-
