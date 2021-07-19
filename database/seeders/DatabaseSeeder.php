@@ -19,6 +19,8 @@ class DatabaseSeeder extends Seeder
             CategorySeeder::class,
             ItemSpecificationTypeSeeder::class,
             ItemSeeder::class,
+            CurrencySeeder::class,
+            PriceSeeder::class,
         ]);
     }
 }
