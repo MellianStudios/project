@@ -58,6 +58,7 @@ Route::prefix(LaravelLocalization::setLocale())->middleware(['localize', 'locali
     Route::get('/announcement', [AnnouncementController::class, 'create'])->name('announcement');
 
     Route::get('/', function () {
+        dd(\App\Models\Item::with(['specs', 'price' => fn($query) => $query->with(['currency'])])->get());
         return Inertia::render('Welcome');
     })->name('dashboard');
 });
