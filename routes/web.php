@@ -8,6 +8,7 @@ use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Auth\PasswordResetController;
 use App\Http\Controllers\Auth\RegistrationController;
 use App\Http\Controllers\Auth\ResendAccountActivationController;
+use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
@@ -57,7 +58,5 @@ Route::prefix(LaravelLocalization::setLocale())->middleware(['localize', 'locali
 
     Route::get('/announcement', [AnnouncementController::class, 'create'])->name('announcement');
 
-    Route::get('/', function () {
-        return Inertia::render('Welcome');
-    })->name('dashboard');
+    Route::get('/', [DashboardController::class, 'create'])->name('dashboard');
 });

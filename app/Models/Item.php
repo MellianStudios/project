@@ -14,6 +14,12 @@ class Item extends Model
 {
     use InteractsWithMedia;
 
+    protected $fillable = [
+        'name',
+        'short_description',
+        'description',
+    ];
+
     /**
      * @return BelongsToMany
      */
@@ -25,9 +31,9 @@ class Item extends Model
     /**
      * @return BelongsTo
      */
-    public function type(): BelongsTo
+    public function category(): BelongsTo
     {
-        return $this->belongsTo(ItemType::class);
+        return $this->belongsTo(Category::class);
     }
 
     /**
@@ -36,5 +42,10 @@ class Item extends Model
     public function family(): BelongsTo
     {
         return $this->belongsTo(ItemFamily::class, 'item_family_id');
+    }
+
+    public function scopeSummary($query)
+    {
+        return $query->select(['id', 'name', 'short_description', 'category_id', 'item_family_id', 'created_at', 'updated_at']);
     }
 }
