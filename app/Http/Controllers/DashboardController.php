@@ -18,7 +18,14 @@ class DashboardController extends Controller
         return Inertia::render('Dashboard', [
             'user' => Auth::user(),
             'categories' => Category::whereNull('parent_id')->get(),
-            'items' => Item::summary()->orderBy('id')->cursorPaginate(),
+            'items' => Item::summary()
+                ->with([
+                    'category',
+                    'family' => fn($q) => $q->with(['brand']),
+                    'price' => fn($q) => $q->with(['currency']),
+                ])
+                ->orderBy('id')
+                ->cursorPaginate(),
         ]);
     }
 }
