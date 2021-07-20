@@ -3,7 +3,7 @@
         <div class="md:mt-12 md:w-48 md:fixed md:left-0 md:top-0 content-center md:content-start text-left justify-between">
             <ul class="list-reset flex flex-row md:flex-col py-0 md:py-3 px-1 md:px-2 text-center md:text-left">
                 <template v-for="category in categories">
-                    <molecule-category-menu-item :category="category"></molecule-category-menu-item>
+                    <molecule-category-menu-item :category="category" @clicked-category="categoryTrigger"></molecule-category-menu-item>
                 </template>
             </ul>
         </div>
@@ -19,6 +19,17 @@ export default {
     },
     props: {
         categories: Object,
+    },
+    data () {
+        return {
+
+        }
+    },
+    methods: {
+        categoryTrigger(category) {
+            console.log(this.$refs);
+            //this.$refs['sub_' + category.id].classList.value = this.$refs['sub_' + this.activeCategory].classList.value + ' hidden';
+        },
     },
 }
 </script>

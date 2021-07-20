@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\AnnouncementController;
 use App\Http\Controllers\Auth\AccountActivationController;
 use App\Http\Controllers\Auth\ForgottenPasswordController;
@@ -25,8 +26,8 @@ use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 */
 
 Route::prefix(LaravelLocalization::setLocale())->middleware(['localize', 'localizationRedirect', 'localeSessionRedirect', 'localeViewPath'])->group(function () {
-    Route::prefix('admin')->middleware(['auth', 'role:admin'])->group(function () {
-
+    Route::prefix('admin')->as('admin.')->middleware(['auth', 'role:admin'])->group(function () {
+        Route::resource('categories', CategoryController::class)->except(['show']);
     });
 
     Route::middleware(['guest'])->group(function () {
