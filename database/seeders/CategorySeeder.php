@@ -24,10 +24,82 @@ class CategorySeeder extends Seeder
                 'parent_id' => 1,
             ],
             [
-                'name' => 'CPU cooler',
+                'name' => 'Cooling',
                 'parent_id' => 1,
             ],
             [
+                'name' => 'Water cooling',
+                'parent_id' => 3,
+            ],
+            [
+                'name' => 'CPU',
+                'parent_id' => 4,
+            ],
+            [
+                'name' => 'GPU',
+                'parent_id' => 4,
+            ],
+            [
+                'name' => 'SSD',
+                'parent_id' => 4,
+            ],
+            [
+                'name' => 'Air cooling',
+                'parent_id' => 3,
+            ],
+            [
+                'name' => 'CPU',
+                'parent_id' => 8,
+            ],
+            [
+                'name' => 'GPU',
+                'parent_id' => 8,
+            ],
+            [
+                'name' => 'Case fans',
+                'parent_id' => 8,
+            ],
+            [
+                'name' => 'SSD',
+                'parent_id' => 8,
+            ],
+            [
+                'name' => 'Accessories',
+                'parent_id' => 3,
+            ],
+            [
+                'name' => 'Thermal compounds',
+                'parent_id' => 13,
+            ],
+            [
+                'name' => 'Thermal pads',
+                'parent_id' => 13,
+            ],
+            [
+                'name' => 'Cables',
+                'parent_id' => 13,
+            ],
+            [
+                'name' => 'Fan controllers',
+                'parent_id' => 13,
+            ],
+            [
+                'name' => 'Coolants',
+                'parent_id' => 13,
+            ],
+            [
+                'name' => 'Fittings',
+                'parent_id' => 13,
+            ],
+            [
+                'name' => 'Hard tubing',
+                'parent_id' => 13,
+            ],
+            [
+                'name' => 'Soft tubing',
+                'parent_id' => 13,
+            ],
+            [//21
                 'name' => 'RAM',
                 'parent_id' => 1,
             ],
