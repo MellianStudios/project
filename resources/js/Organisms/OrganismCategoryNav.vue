@@ -3,7 +3,7 @@
         <div class="md:mt-12 md:w-48 md:fixed md:left-0 md:top-0 content-center md:content-start text-left justify-between">
             <ul class="list-reset flex flex-row md:flex-col py-0 md:py-3 px-1 md:px-2 text-center md:text-left">
                 <template v-for="category in categories">
-                    <molecule-category-menu-item :category="category" @clicked-category="categoryTrigger"></molecule-category-menu-item>
+                    <molecule-category-menu-item :category="category" :opened="openedCategories"></molecule-category-menu-item>
                 </template>
             </ul>
         </div>
@@ -20,16 +20,30 @@ export default {
     props: {
         categories: Object,
     },
-    data () {
+    data() {
         return {
-
+            openedCategories: {},
         }
     },
     methods: {
         categoryTrigger(category) {
-            console.log(this.$refs);
-            //this.$refs['sub_' + category.id].classList.value = this.$refs['sub_' + this.activeCategory].classList.value + ' hidden';
+            if (Object.values(this.openedCategories).includes(category.id)) {
+                delete this.openedCategories[category.layer];
+            } else {
+                if (this.openedCategories.hasOwnProperty(category.layer + 1)) {
+                    for (const [layer, id] of Object.entries(this.openedCategories)) {
+                        if (layer > category.layer) {
+                            delete this.openedCategories[layer];
+                        }
+                    }
+                }
+
+                this.openedCategories[category.layer] = category.id;
+            }
         },
     },
+    mounted() {
+        this.emitter.on('clickedCategory', category => this.categoryTrigger(category))
+    }
 }
 </script>
