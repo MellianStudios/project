@@ -22,7 +22,7 @@
 </template>
 
 <script>
-import MoleculeUserDropdown from "../Molecules/MoleculeUserDropdown";
+import MoleculeUserDropdown from '../Molecules/MoleculeUserDropdown';
 
 export default {
     components: {

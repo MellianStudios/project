@@ -51,9 +51,9 @@
 </template>
 
 <script>
-import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/vue';
-import { ChevronDownIcon } from '@heroicons/vue/solid';
-import { Link } from '@inertiajs/inertia-vue3';
+import {Menu, MenuButton, MenuItem, MenuItems} from '@headlessui/vue';
+import {ChevronDownIcon} from '@heroicons/vue/solid';
+import {Link} from '@inertiajs/inertia-vue3';
 
 export default {
     components: {

@@ -32,7 +32,9 @@ class CategoryController extends Controller
      */
     public function create(): Response
     {
-        return Inertia::render('Admin/Category/Create');
+        return Inertia::render('Admin/Category/Create', [
+            'categories' => Category::whereNull('parent_id')->get(),
+        ]);
     }
 
     /**
@@ -44,7 +46,17 @@ class CategoryController extends Controller
      */
     public function store(StoreRequest $request): RedirectResponse
     {
-        return Redirect::route('admin.category.index');
+        if ($request->parent_id) {
+            $parent_category = Category::find($request->parent_id);
+        }
+
+        Category::create([
+            'name' => $request->name,
+            'parent_id' => isset($parent_category) ? $parent_category->id : null,
+            'layer' => isset($parent_category) ? $parent_category->layer + 1 : 1,
+        ]);
+
+        return Redirect::route('admin.categories.index');
     }
 
     /**
@@ -69,7 +81,7 @@ class CategoryController extends Controller
      */
     public function update(UpdateRequest $request, $id): RedirectResponse
     {
-        return Redirect::route('admin.category.index');
+        return Redirect::route('admin.categories.index');
     }
 
     /**
@@ -81,6 +93,6 @@ class CategoryController extends Controller
      */
     public function destroy($id): RedirectResponse
     {
-        return Redirect::route('admin.category.index');
+        return Redirect::route('admin.categories.index');
     }
 }

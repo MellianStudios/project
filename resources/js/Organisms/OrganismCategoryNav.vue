@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import MoleculeCategoryMenuItem from "../Molecules/MoleculeCategoryMenuItem";
+import MoleculeCategoryMenuItem from '../Molecules/MoleculeCategoryMenuItem';
 
 export default {
     components: {
@@ -44,6 +44,6 @@ export default {
     },
     mounted() {
         this.emitter.on('clickedCategory', category => this.categoryTrigger(category))
-    }
+    },
 }
 </script>
