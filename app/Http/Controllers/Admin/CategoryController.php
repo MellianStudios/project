@@ -66,9 +66,11 @@ class CategoryController extends Controller
      *
      * @return Response
      */
-    public function edit($id): Response
+    public function edit(int $id): Response
     {
-        return Inertia::render('Admin/Category/Edit');
+        return Inertia::render('Admin/Category/Edit', [
+            'category' => Category::where('id', $id)->with(['directParent'])->firstOrFail(),
+        ]);
     }
 
     /**
@@ -79,8 +81,11 @@ class CategoryController extends Controller
      *
      * @return RedirectResponse
      */
-    public function update(UpdateRequest $request, $id): RedirectResponse
+    public function update(UpdateRequest $request, int $id): RedirectResponse
     {
+        Category::where('id', $id)
+            ->update($request->validated());
+
         return Redirect::route('admin.categories.index');
     }
 
@@ -91,8 +96,10 @@ class CategoryController extends Controller
      *
      * @return RedirectResponse
      */
-    public function destroy($id): RedirectResponse
+    public function destroy(int $id): RedirectResponse
     {
+        Category::destroy($id);
+
         return Redirect::route('admin.categories.index');
     }
 }

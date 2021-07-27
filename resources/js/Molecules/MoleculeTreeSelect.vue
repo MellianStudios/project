@@ -22,11 +22,12 @@ export default {
         name: String,
         options: Object,
         nestedKey: String,
+        selected: null,
     },
     data() {
         return {
             show: false,
-            selectedOption: 'Select',
+            selectedOption: this.options.direct_parent.name,
         }
     },
     methods: {
@@ -36,7 +37,7 @@ export default {
         updateSelect(option) {
             this.selectedOption = option.name;
             this.toggleShow();
-        }
+        },
     },
     mounted() {
         this.emitter.on(this.name, option => this.updateSelect(option));

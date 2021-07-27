@@ -47,7 +47,7 @@ export default {
     },
     methods: {
         submit() {
-            Inertia.post(route('admin.categories.store', this.form));
+            Inertia.post(route('admin.categories.store'), this.form);
         }
     },
     mounted() {
