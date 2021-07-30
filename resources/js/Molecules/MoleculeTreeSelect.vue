@@ -27,7 +27,7 @@ export default {
     data() {
         return {
             show: false,
-            selectedOption: this.options.direct_parent.name,
+            selectedOption: this.selected ? this.selected.name : 'Select',
         }
     },
     methods: {

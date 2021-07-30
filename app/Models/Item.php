@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
+use Laravel\Scout\Searchable;
 use Spatie\MediaLibrary\InteractsWithMedia;
 
 /**
@@ -14,13 +15,23 @@ use Spatie\MediaLibrary\InteractsWithMedia;
  */
 class Item extends Model
 {
-    use InteractsWithMedia;
+    use InteractsWithMedia, Searchable;
 
     protected $fillable = [
         'name',
         'short_description',
         'description',
     ];
+
+    /**
+     * Get the indexable data array for the model.
+     *
+     * @return array
+     */
+    public function toSearchableArray(): array
+    {
+        return $this->only(['id', 'name']);
+    }
 
     /**
      * @return BelongsToMany
