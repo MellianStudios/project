@@ -16,7 +16,6 @@ class ItemSpecificationTypeSeeder extends Seeder
     {
         $types = [
             [
-                'category_id' => 2,
                 'system_name' => 'core_count',
                 'name' => 'Core count',
                 'units' => null,
@@ -24,7 +23,6 @@ class ItemSpecificationTypeSeeder extends Seeder
                 'order' => 1,
             ],
             [
-                'category_id' => 2,
                 'system_name' => 'thread_count',
                 'name' => 'Thread count',
                 'units' => null,
@@ -32,7 +30,6 @@ class ItemSpecificationTypeSeeder extends Seeder
                 'order' => 2,
             ],
             [
-                'category_id' => 2,
                 'system_name' => 'frequency',
                 'name' => 'Frequency',
                 'units' => 'MHz',
@@ -40,7 +37,6 @@ class ItemSpecificationTypeSeeder extends Seeder
                 'order' => 3,
             ],
             [
-                'category_id' => 2,
                 'system_name' => 'boost',
                 'name' => 'Boost',
                 'units' => 'MHz',
@@ -48,7 +44,6 @@ class ItemSpecificationTypeSeeder extends Seeder
                 'order' => 4,
             ],
             [
-                'category_id' => 2,
                 'system_name' => 'tdp',
                 'name' => 'TDP',
                 'units' => 'W',
@@ -56,7 +51,6 @@ class ItemSpecificationTypeSeeder extends Seeder
                 'order' => 5,
             ],
             [
-                'category_id' => 2,
                 'system_name' => 'cache',
                 'name' => 'Cache',
                 'units' => 'MB',
@@ -64,7 +58,6 @@ class ItemSpecificationTypeSeeder extends Seeder
                 'order' => 6,
             ],
             [
-                'category_id' => 2,
                 'system_name' => 'socket',
                 'name' => 'Socket',
                 'units' => null,
@@ -72,7 +65,6 @@ class ItemSpecificationTypeSeeder extends Seeder
                 'order' => 7,
             ],
             [
-                'category_id' => 2,
                 'system_name' => 'integrated_gpu',
                 'name' => 'Integrated GPU',
                 'units' => null,
@@ -80,7 +72,6 @@ class ItemSpecificationTypeSeeder extends Seeder
                 'order' => 8,
             ],
             [
-                'category_id' => 3,
                 'system_name' => 'sockets',
                 'name' => 'Sockets',
                 'units' => null,
@@ -88,7 +79,6 @@ class ItemSpecificationTypeSeeder extends Seeder
                 'order' => 1,
             ],
             [
-                'category_id' => 3,
                 'system_name' => 'type',
                 'name' => 'Type',
                 'units' => null,
@@ -96,7 +86,6 @@ class ItemSpecificationTypeSeeder extends Seeder
                 'order' => 2,
             ],
             [
-                'category_id' => 4,
                 'system_name' => 'type',
                 'name' => 'Type',
                 'units' => null,
@@ -104,7 +93,6 @@ class ItemSpecificationTypeSeeder extends Seeder
                 'order' => 1,
             ],
             [
-                'category_id' => 4,
                 'system_name' => 'capacity',
                 'name' => 'Capacity',
                 'units' => 'GB',
@@ -112,7 +100,6 @@ class ItemSpecificationTypeSeeder extends Seeder
                 'order' => 2,
             ],
             [
-                'category_id' => 4,
                 'system_name' => 'frequency',
                 'name' => 'Frequency',
                 'units' => 'MHz',
@@ -120,7 +107,6 @@ class ItemSpecificationTypeSeeder extends Seeder
                 'order' => 3,
             ],
             [
-                'category_id' => 5,
                 'system_name' => 'socket',
                 'name' => 'Socket',
                 'units' => null,
@@ -128,7 +114,6 @@ class ItemSpecificationTypeSeeder extends Seeder
                 'order' => 1,
             ],
             [
-                'category_id' => 5,
                 'system_name' => 'chipset',
                 'name' => 'Chipset',
                 'units' => null,
@@ -136,7 +121,6 @@ class ItemSpecificationTypeSeeder extends Seeder
                 'order' => 2,
             ],
             [
-                'category_id' => 5,
                 'system_name' => 'format',
                 'name' => 'Format',
                 'units' => null,
@@ -144,7 +128,6 @@ class ItemSpecificationTypeSeeder extends Seeder
                 'order' => 3,
             ],
             [
-                'category_id' => 6,
                 'system_name' => 'chip_maker',
                 'name' => 'Chip maker',
                 'units' => null,
@@ -152,7 +135,6 @@ class ItemSpecificationTypeSeeder extends Seeder
                 'order' => 1,
             ],
             [
-                'category_id' => 6,
                 'system_name' => 'frequency',
                 'name' => 'Frequency',
                 'units' => 'MHz',
@@ -160,7 +142,6 @@ class ItemSpecificationTypeSeeder extends Seeder
                 'order' => 2,
             ],
             [
-                'category_id' => 6,
                 'system_name' => 'boost',
                 'name' => 'Boost',
                 'units' => 'MHz',
@@ -168,7 +149,6 @@ class ItemSpecificationTypeSeeder extends Seeder
                 'order' => 3,
             ],
             [
-                'category_id' => 6,
                 'system_name' => 'ram_type',
                 'name' => 'RAM type',
                 'units' => null,
@@ -176,7 +156,6 @@ class ItemSpecificationTypeSeeder extends Seeder
                 'order' => 4,
             ],
             [
-                'category_id' => 6,
                 'system_name' => 'ram_capacity',
                 'name' => 'RAM capacity',
                 'units' => 'GB',
@@ -184,7 +163,6 @@ class ItemSpecificationTypeSeeder extends Seeder
                 'order' => 5,
             ],
             [
-                'category_id' => 6,
                 'system_name' => 'ram_frequency',
                 'name' => 'RAM frequency',
                 'units' => 'MHz',
@@ -192,7 +170,6 @@ class ItemSpecificationTypeSeeder extends Seeder
                 'order' => 6,
             ],
             [
-                'category_id' => 7,
                 'system_name' => 'form_factor',
                 'name' => 'Form factor',
                 'units' => null,
@@ -200,7 +177,6 @@ class ItemSpecificationTypeSeeder extends Seeder
                 'order' => 1,
             ],
             [
-                'category_id' => 7,
                 'system_name' => 'capacity',
                 'name' => 'Capacity',
                 'units' => 'GB',
@@ -208,7 +184,6 @@ class ItemSpecificationTypeSeeder extends Seeder
                 'order' => 2,
             ],
             [
-                'category_id' => 7,
                 'system_name' => 'read_speed',
                 'name' => 'Read speed',
                 'units' => 'MB/s',
@@ -216,7 +191,6 @@ class ItemSpecificationTypeSeeder extends Seeder
                 'order' => 3,
             ],
             [
-                'category_id' => 7,
                 'system_name' => 'write_speed',
                 'name' => 'Write speed',
                 'units' => 'MB/s',
@@ -224,7 +198,6 @@ class ItemSpecificationTypeSeeder extends Seeder
                 'order' => 4,
             ],
             [
-                'category_id' => 8,
                 'system_name' => 'capacity',
                 'name' => 'Capacity',
                 'units' => 'GB',
@@ -232,7 +205,6 @@ class ItemSpecificationTypeSeeder extends Seeder
                 'order' => 1,
             ],
             [
-                'category_id' => 8,
                 'system_name' => 'rpm',
                 'name' => 'RPM',
                 'units' => null,
@@ -240,7 +212,6 @@ class ItemSpecificationTypeSeeder extends Seeder
                 'order' => 2,
             ],
             [
-                'category_id' => 8,
                 'system_name' => 'read_speed',
                 'name' => 'Read speed',
                 'units' => 'MB/s',
@@ -248,7 +219,6 @@ class ItemSpecificationTypeSeeder extends Seeder
                 'order' => 3,
             ],
             [
-                'category_id' => 8,
                 'system_name' => 'write_speed',
                 'name' => 'Write speed',
                 'units' => 'MB/s',
@@ -256,7 +226,6 @@ class ItemSpecificationTypeSeeder extends Seeder
                 'order' => 4,
             ],
             [
-                'category_id' => 9,
                 'system_name' => 'efficacy',
                 'name' => 'Efficacy',
                 'units' => null,
@@ -264,7 +233,6 @@ class ItemSpecificationTypeSeeder extends Seeder
                 'order' => 1,
             ],
             [
-                'category_id' => 9,
                 'system_name' => 'maximum_power',
                 'name' => 'Maximum power',
                 'units' => 'W',
@@ -272,7 +240,6 @@ class ItemSpecificationTypeSeeder extends Seeder
                 'order' => 2,
             ],
             [
-                'category_id' => 9,
                 'system_name' => 'form_factor',
                 'name' => 'Form factor',
                 'units' => null,
@@ -280,7 +247,6 @@ class ItemSpecificationTypeSeeder extends Seeder
                 'order' => 3,
             ],
             [
-                'category_id' => 10,
                 'system_name' => 'size',
                 'name' => 'Size',
                 'units' => null,
@@ -288,7 +254,6 @@ class ItemSpecificationTypeSeeder extends Seeder
                 'order' => 1,
             ],
             [
-                'category_id' => 10,
                 'system_name' => 'motherboard_format',
                 'name' => 'Motherboard format',
                 'units' => null,
@@ -301,11 +266,12 @@ class ItemSpecificationTypeSeeder extends Seeder
 
         foreach ($types as $type) {
             ItemSpecificationType::create([
-                'category_id' => $type->category_id,
+                'item_type_id' => 1,
                 'system_name' => $type->system_name,
                 'name' => $type->name,
                 'units' => $type->units,
                 'required' => $type->required,
+                'input_type' => 'string',
                 'order' => $type->order,
             ]);
         }

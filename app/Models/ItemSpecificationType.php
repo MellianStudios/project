@@ -9,4 +9,8 @@ use Illuminate\Database\Eloquent\Model;
  */
 class ItemSpecificationType extends Model
 {
+    public function type()
+    {
+        return $this->belongsTo(ItemType::class);
+    }
 }

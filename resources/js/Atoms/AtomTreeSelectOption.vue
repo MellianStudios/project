@@ -18,7 +18,7 @@ export default {
     },
     methods: {
         emitClick() {
-            this.emitter.emit(this.name, this.option);
+            this.emitter.emit(this.name + '_select', this.option);
         }
     }
 }

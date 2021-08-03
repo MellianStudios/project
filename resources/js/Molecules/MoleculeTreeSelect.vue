@@ -40,7 +40,10 @@ export default {
         },
     },
     mounted() {
-        this.emitter.on(this.name, option => this.updateSelect(option));
+        this.emitter.on(this.name + '_select', (option) => {
+            this.updateSelect(option);
+            this.emitter.emit(this.name, option);
+        });
     },
 }
 </script>

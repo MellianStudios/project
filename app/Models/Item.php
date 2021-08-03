@@ -9,11 +9,12 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Laravel\Scout\Searchable;
 use Spatie\MediaLibrary\InteractsWithMedia;
+use Spatie\MediaLibrary\HasMedia;
 
 /**
  * @mixin IdeHelperItem
  */
-class Item extends Model
+class Item extends Model implements HasMedia
 {
     use InteractsWithMedia, Searchable;
 

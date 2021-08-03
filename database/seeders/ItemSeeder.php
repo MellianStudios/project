@@ -220,6 +220,7 @@ class ItemSeeder extends Seeder
                 'short_description' => $item['short_description'],
                 'description' => $item['description'],
                 'category_id' => $item['category_id'],
+                'item_type_id' => 1,
                 'item_family_id' => $item['item_family_id'],
             ]);
 

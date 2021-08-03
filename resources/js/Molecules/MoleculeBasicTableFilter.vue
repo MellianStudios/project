@@ -1,19 +1,19 @@
 <template>
     <div class="mt-4 w-full">
-        <form @click.prevent="submit">
+        <form @submit.prevent="submit">
             <div class="shadow overflow-hidden sm:rounded-md">
                 <div class="px-4 py-5 bg-white sm:p-6">
                     <div class="grid grid-cols-6 gap-6">
-                        <template v-for="(filter, name) in filters">
+                        <template v-for="filter in filters.options">
                             <template v-if="filter.type === 'text'">
                                 <div class="col-span-6 sm:col-span-6 lg:col-span-2">
-                                    <label :for="name" class="block text-sm font-medium text-gray-700">{{ filter.label }}</label>
-                                    <input type="text" :name="name" :id="name" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
+                                    <label :for="filter.key" class="block text-sm font-medium text-gray-700">{{ filter.label }}</label>
+                                    <input type="text" :name="filter.key" :id="filter.key" v-model="form[filter.key]" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" />
                                 </div>
                             </template>
                             <template v-else-if="filter.type === 'tree_select'">
                                 <div class="col-span-6">
-                                    <molecule-tree-select :label="filter.label" :name="name" :options="filter.options" :nested-key="filter.nested_key"></molecule-tree-select>
+                                    <molecule-tree-select :label="filter.label" :name="filter.key" :options="filter.options" :nested-key="filter.nested_key" :selected="filter.value"></molecule-tree-select>
                                 </div>
                             </template>
                         </template>
@@ -46,28 +46,23 @@ export default {
     },
     data() {
         return {
-            form: reactive({}),
+            form: reactive(reduce(this.filters.options, function (result, value, key) {
+                result[key] = value.value;
+                return result;
+            }, {})),
         }
     },
     methods: {
         submit() {
-            Inertia.get(route(this.filters.route), this.form);
+            Inertia.get(route(this.filters.route), this.form, { replace: true });
         }
     },
     mounted() {
-        let test = {
-            'one': {value: 'one'},
-            'two': {value: 'two'},
-            'three': {value: 'three'}
-        };
-
-        let result_2 = reduce(test, function (result, value, key) {
-            result[key] = value.value;
-        }, {})
-
-        console.log(result_2);
-
-        this.emitter.on('parent_category', option => this.form.parent_id = option.id);
+        for (const key in this.filters.options) {
+            if (this.filters.options[key].type === 'tree_select') {
+                this.emitter.on(key, option => this.form[key] = option.id);
+            }
+        }
     },
 }
 </script>
